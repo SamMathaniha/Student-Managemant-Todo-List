@@ -1,0 +1,82 @@
+/* style.css */
+
+/* Set page background image and text color */
+body {
+    background-image: radial-gradient(circle at center center, rgb(192, 239, 210), rgb(47, 129, 239));
+    color: #333; /* Changed text color for better contrast */
+    font-family: Arial, sans-serif; /* Set default font family */
+}
+
+/* Center the form */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px; /* Increased padding for better spacing */
+    margin: 0 auto; /* Center the form horizontally */
+    max-width: 500px; /* Limit form width for better readability */
+    background-color: rgba(255, 255, 255, 0.9); /* Adjust the transparency as needed */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
+}
+
+h1 {
+    font-size: 30px; /* Increased font size */
+    margin-bottom: 20px; /* Added margin for separation */
+    text-align: center;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+input[type="email"],
+button {
+    width: 100%; /* Make inputs fill the entire width */
+    padding: 12px; /* Increased padding for better appearance */
+    margin-bottom: 20px; /* Added margin for spacing between inputs */
+    border: 1px solid #ccc; /* Add border for clarity */
+    border-radius: 5px; /* Add border-radius for rounded corners */
+    transition: border-color 0.3s ease; /* Add transition effect */
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+input[type="email"]:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: #007bff; /* Change border color on focus */
+}
+
+/* Style buttons */
+button {
+    background-color: #007bff; /* Set background color */
+    color: #fff; /* Set text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border-radius for rounded corners */
+    cursor: pointer; /* Add pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Add transition effect */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker background color on hover */
+}
+
+/* Style the table */
+#Table-Container {
+    margin: 40px auto; /* Center the table horizontally */
+    max-width: 800px; /* Limit table width for better readability */
+    border-collapse: collapse; /* Collapse table borders */
+}
+
+#Table-Container th,
+#Table-Container td {
+    padding: 15px; /* Add padding to table cells */
+    text-align: center; /* Center-align table content */
+    border: 1px solid #ccc; /* Add border to table cells */
+}
+
+#Table-Container th {
+    background-color: #007bff; /* Set header background color */
+    color: #fff; /* Set header text color */
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body>
+    <!-- Title -->
+    <h1>STUDENT FORM</h1>
+
+    <!-- Form Section -->
+    <form>
+        <!-- Name Input Field -->
+        <label for="inputName">Name</label>
+        <input type="text" id="inputName" required>
+
+        <!-- Age Input Field -->
+        <label for="inputAge">Age</label>
+        <input type="number" id="inputAge" required>
+
+        <!-- Gender Input Section -->
+        <div class="gender-container">
+            <label>Gender</label>
+            <div>
+                <!-- Male Gender Radio Button -->
+                <label for="inputGenderMale">Male</label>
+                <input type="radio" value="Male" name="Gender" id="inputGenderMale" required>
+
+                <!-- Female Gender Radio Button -->
+                <label for="inputGenderFemale">Female</label>
+                <input type="radio" value="Female" name="Gender" id="inputGenderFemale" required>
+            </div>
+        </div>
+
+        <!-- Course Selection Dropdown -->
+        <label for="InputCourse">Course</label>
+        <select id="InputCourse" required>
+            <option value="Web Development">Web Development</option>
+            <option value="MERN">MERN</option>
+            <option value="C#">C#</option>
+            <option value="ASP.NET">ASP.NET</option>
+        </select>
+
+        <!-- Email Input Field -->
+        <label for="inputEmail">Email</label>
+        <input type="email" id="inputEmail" required> <!-- Move required attribute to input field -->
+
+        <!-- Save Button -->
+        <button type="button" onclick="addStudentDetails()">Save</button>
+    </form>
+
+    <br>
+
+    <!-- Table Section -->
+    <table border="2" id="Table-Container">
+        <!-- Table Header -->
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Course</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        <!-- Sample Table Row -->
+        <tr>
+            <td>Sam</td>
+            <td>23</td>
+            <td>Male</td>
+            <td>Python</td>
+            <td>Sam@gmail.com</td>
+            <td><button onclick="deleteRow(this)">Delete</button></td>
+        </tr>
+    </table>
+
+    <!-- JavaScript Section -->
+    <script>
+        var inputName = document.getElementById("inputName");
+        var inputAge = document.getElementById("inputAge");
+        var inputGenderMale = document.getElementById("inputGenderMale");
+        var InputCourse = document.getElementById("InputCourse");
+        var inputEmail = document.getElementById("inputEmail");
+        var table = document.getElementById("Table-Container");
+
+        // Function to add student details to the table
+        function addStudentDetails() {
+            // Validate email field
+            if (inputEmail.checkValidity()) {
+                var stList = document.createElement("tr");
+                stList.innerHTML = '<td>' + inputName.value + '</td>' + '<td>' + inputAge.value + '</td>' + '<td>' + (inputGenderMale.checked ? "Male" : "Female") + '</td>' + '<td>' + InputCourse.value + '</td>' + '<td>' + inputEmail.value + '</td>' + '<td><button onclick="deleteRow(this)">Delete</button></td>';
+                table.appendChild(stList);
+                clearInputs();
+            } else {
+                alert("Please enter a valid email address.");
+            }
+        }
+
+        // Function to clear input fields
+        function clearInputs() {
+            inputName.value = '';
+            inputAge.value = '';
+            inputGenderMale.checked = false;
+            inputGenderFemale.checked = false;
+            InputCourse.value = '';
+            inputEmail.value = '';
+        }
+
+        // Function to delete a row from the table
+        function deleteRow(row) {
+            var rowIndex = row.parentNode.parentNode.rowIndex;
+            table.deleteRow(rowIndex);
+        }
+    </script>
+</body>
+
+</html>
